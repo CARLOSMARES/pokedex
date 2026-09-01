@@ -29,7 +29,7 @@ function App() {
   const [results, setResults] = useState<PokemonSummary[]>([])
   const [popular, setPopular] = useState<PokemonSummary[]>([])
   const [suggestions, setSuggestions] = useState<PokemonSuggestion[]>([])
-  //const [isLoading, setIsLoading] = useState(false)
+  const [_, setIsLoading] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(-1)
   const inputRef = useRef<HTMLInputElement | null>(null)
 
