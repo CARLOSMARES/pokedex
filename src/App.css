@@ -1,0 +1,324 @@
+.pokedex-app {
+  position: relative;
+  width: min(1200px, calc(100% - 32px));
+  margin: 40px auto;
+  padding: 24px 18px 40px;
+  min-height: calc(100vh - 80px);
+}
+
+.ambient {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.ambient-one {
+  inset: 50px auto auto -80px;
+  background: rgba(104, 142, 255, 0.4);
+}
+
+.ambient-two {
+  inset: auto -110px 30px auto;
+  background: rgba(255, 113, 181, 0.35);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 20px 60px rgba(21, 27, 55, 0.2);
+}
+
+.topbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 30px;
+  padding: 28px 24px;
+  margin-bottom: 20px;
+}
+
+.title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.76);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.search-block {
+  position: relative;
+  z-index: 1;
+  border-radius: 28px;
+  padding: 18px 18px 10px;
+  margin-bottom: 28px;
+}
+
+.search-shell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(12, 15, 27, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  padding: 8px 10px 8px 14px;
+}
+
+.search-icon {
+  width: 22px;
+  height: 22px;
+  fill: rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+}
+
+.search-shell input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.04rem;
+  padding: 12px 8px;
+}
+
+.search-shell input::placeholder {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.search-button {
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(116, 150, 255, 0.95), rgba(177, 119, 255, 0.95));
+  color: white;
+  font-weight: 700;
+  padding: 12px 18px;
+  cursor: pointer;
+  box-shadow: 0 12px 25px rgba(124, 116, 255, 0.35);
+}
+
+.suggestions {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.suggestions button {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: left;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.suggestions button.active,
+.suggestions button:hover {
+  border-color: rgba(166, 190, 255, 0.32);
+  background: rgba(151, 171, 255, 0.12);
+}
+
+.suggestion-kind {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.results-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.results-header h2 {
+  margin: 0;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.card-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.pokemon-card {
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 330px;
+}
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 28px;
+  padding: 18px 12px 8px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.site-footer span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.card-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 18px 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.19), rgba(255,255,255,0.02));
+}
+
+.pokemon-image {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 24px rgba(17, 24, 39, 0.32));
+}
+
+.card-body {
+  padding: 12px 16px 18px;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.pokemon-id {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.pokemon-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: white;
+  text-transform: capitalize;
+}
+
+.type-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.pokemon-type {
+  border-radius: 999px;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 14px;
+}
+
+.stats-grid div {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.stats-grid dt {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stats-grid dd {
+  margin: 6px 0 0;
+  color: white;
+  font-weight: 700;
+}
+
+.ability-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ability-pill {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  padding: 6px 8px;
+  font-size: 0.7rem;
+  text-transform: capitalize;
+}
+
+@media (max-width: 640px) {
+  .pokedex-app {
+    width: min(100% - 18px, 1200px);
+    margin: 18px auto 32px;
+    padding: 12px 8px 28px;
+  }
+
+  .topbar,
+  .search-block {
+    border-radius: 22px;
+  }
+
+  .search-shell {
+    flex-wrap: wrap;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+}
